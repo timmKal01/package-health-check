@@ -1,0 +1,15 @@
+{
+    "name": "package-health-check",
+    "version": "0.1.0",
+    "type": "module",
+    "description": "Check whether an open-source package across npm, PyPI, crates.io, RubyGems, Packagist, or NuGet is actively maintained, stale, or abandoned.",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "apify": "^3.2.6"
+    },
+    "scripts": {
+        "start": "node src/main.js"
+    }
+}
