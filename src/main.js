@@ -33,7 +33,7 @@ for (const pkg of packages) {
     const fetcher = REGISTRY_FETCHERS[ecosystem];
 
     if (!fetcher || !name) {
-        log.warning('Skipping invalid package entry — need { ecosystem, name } with a supported ecosystem', {
+        log.warning('Skipping invalid package entry: need { ecosystem, name } with a supported ecosystem', {
             pkg,
             supportedEcosystems: Object.keys(REGISTRY_FETCHERS),
         });

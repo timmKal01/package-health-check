@@ -22,7 +22,7 @@ export async function fetchGithubRepoStats(repositoryUrl, githubToken) {
             headers,
             signal: controller.signal,
         });
-        if (!res.ok) return null; // Not found, private, renamed, or rate-limited — treat as "no GitHub signal", not a hard failure.
+        if (!res.ok) return null; // Not found, private, renamed, or rate-limited: treat as "no GitHub signal", not a hard failure.
 
         const body = await res.json();
         return {

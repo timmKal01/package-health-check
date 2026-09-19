@@ -1,8 +1,8 @@
-# Package Health Check — Maintenance Status Across 6 Ecosystems
+# Package Health Check: Maintenance Status Across 6 Ecosystems
 
 Give it a package name and its ecosystem. Get back its latest version,
 license, linked GitHub repo signals (stars, open issues, last push), and a
-computed maintenance status — `ACTIVE`, `STALE`, or `ABANDONED`. Works
+computed maintenance status: `ACTIVE`, `STALE`, or `ABANDONED`. Works
 across npm, PyPI, crates.io, RubyGems, Packagist, and NuGet with one
 consistent output shape, so you're not juggling six different registry
 formats to answer "is this thing safe to depend on."
@@ -13,7 +13,7 @@ formats to answer "is this thing safe to depend on."
 - **Due-diligence and vendor-risk reviewers** checking whether a vendor's stated tech stack relies on abandoned packages.
 - **Open-source maintainers** auditing their own dependency tree for things that need replacing.
 
-This is a maintenance-health check, not a vulnerability scanner — it tells
+This is a maintenance-health check, not a vulnerability scanner: it tells
 you whether a package is still being actively worked on, not whether it has
 known CVEs.
 
@@ -64,10 +64,10 @@ One record per package:
 `maintenanceStatus` is computed from the more recent of the registry's last
 publish date and the linked GitHub repo's last push date:
 
-- **ACTIVE** — activity within the last 180 days
-- **STALE** — last activity 180–730 days ago
-- **ABANDONED** — over 730 days, or the package is deprecated/yanked, or its repo is archived
-- **UNKNOWN** — no usable date found (rare; usually means no linked repo and the registry didn't report a publish date)
+- **ACTIVE**: activity within the last 180 days
+- **STALE**: last activity 180–730 days ago
+- **ABANDONED**: over 730 days, or the package is deprecated/yanked, or its repo is archived
+- **UNKNOWN**: no usable date found (rare; usually means no linked repo and the registry didn't report a publish date)
 
 If a package isn't found in the registry, the record is `{ "found": false }`
 and no GitHub lookup is attempted.
@@ -75,13 +75,13 @@ and no GitHub lookup is attempted.
 ## How it works
 
 Direct calls to each registry's own public API (npmjs.org, pypi.org,
-crates.io, rubygems.org, packagist.org, nuget.org) — no scraping, no proxy.
+crates.io, rubygems.org, packagist.org, nuget.org): no scraping, no proxy.
 When a registry entry has a `repositoryUrl` pointing to GitHub, one
 additional call to the public GitHub REST API adds stars/issues/last-push
 signal.
 
 **GitHub rate limit note:** unauthenticated GitHub API access is capped at
-60 requests/hour per source IP — enough for small-to-medium batches. For
+60 requests/hour per source IP: enough for small-to-medium batches. For
 large batches, pass your own `githubToken` (a GitHub personal access token
 with no special scopes needed) to raise that to 5,000/hour. Packages
 without a detected GitHub repo URL skip this step entirely and aren't
@@ -89,5 +89,5 @@ affected by the limit.
 
 ## Related products
 
-- [NPM Package Update Tracker](https://github.com/timmKal01/npm-package-tracker) — version-by-version release history for npm, instead of a single current health snapshot
-- [RubyGems Package Lookup](https://github.com/timmKal01/rubygems-package-lookup) / [NuGet Package Lookup](https://github.com/timmKal01/nuget-package-lookup) / [Packagist Package Lookup](https://github.com/timmKal01/packagist-package-lookup) — full metadata for a single ecosystem, if you don't need the cross-ecosystem health rollup
+- [NPM Package Update Tracker](https://github.com/timmKal01/npm-package-tracker): version-by-version release history for npm, instead of a single current health snapshot
+- [RubyGems Package Lookup](https://github.com/timmKal01/rubygems-package-lookup) / [NuGet Package Lookup](https://github.com/timmKal01/nuget-package-lookup) / [Packagist Package Lookup](https://github.com/timmKal01/packagist-package-lookup): full metadata for a single ecosystem, if you don't need the cross-ecosystem health rollup
