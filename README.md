@@ -87,6 +87,13 @@ with no special scopes needed) to raise that to 5,000/hour. Packages
 without a detected GitHub repo URL skip this step entirely and aren't
 affected by the limit.
 
+## Pricing note
+
+Billed per **package successfully checked**, not per registry field or
+GitHub signal returned, one charge per package whether it needed just a
+registry call or also a linked GitHub lookup. A package that's invalid,
+fails its registry lookup, or isn't found at all is not charged.
+
 ## Related products
 
 - [NPM Package Update Tracker](https://github.com/timmKal01/npm-package-tracker): version-by-version release history for npm, instead of a single current health snapshot
