@@ -1,7 +1,7 @@
 {
     "actorSpecification": 1,
     "name": "package-health-check",
-    "title": "Package Health Check: Maintenance Status Across 6 Ecosystems",
+    "title": "Package Health Check: Is It Still Maintained?",
     "description": "Check whether an open-source package is actively maintained, stale, or abandoned: npm, PyPI, crates.io, RubyGems, Packagist, or NuGet, plus linked GitHub repo signals, in one report per package.",
     "version": "0.1",
     "meta": {
