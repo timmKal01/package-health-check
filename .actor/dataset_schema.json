@@ -1,0 +1,81 @@
+{
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Overview",
+            "transformation": {
+                "fields": [
+                    "ecosystem",
+                    "packageName",
+                    "maintenanceStatus",
+                    "latestVersion",
+                    "publishedAt",
+                    "deprecatedOrYanked",
+                    "lastActivityAt",
+                    "github.stars",
+                    "github.archived",
+                    "github.pushedAt",
+                    "license",
+                    "repositoryUrl"
+                ],
+                "flatten": [
+                    "github"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "ecosystem": {
+                        "label": "Ecosystem",
+                        "format": "text"
+                    },
+                    "packageName": {
+                        "label": "Package name",
+                        "format": "text"
+                    },
+                    "maintenanceStatus": {
+                        "label": "Maintenance status",
+                        "format": "text"
+                    },
+                    "latestVersion": {
+                        "label": "Latest version",
+                        "format": "text"
+                    },
+                    "publishedAt": {
+                        "label": "Published at",
+                        "format": "date"
+                    },
+                    "deprecatedOrYanked": {
+                        "label": "Deprecated or yanked",
+                        "format": "boolean"
+                    },
+                    "lastActivityAt": {
+                        "label": "Last activity at",
+                        "format": "date"
+                    },
+                    "github.stars": {
+                        "label": "GitHub: stars",
+                        "format": "number"
+                    },
+                    "github.archived": {
+                        "label": "GitHub: archived",
+                        "format": "boolean"
+                    },
+                    "github.pushedAt": {
+                        "label": "GitHub: pushed at",
+                        "format": "date"
+                    },
+                    "license": {
+                        "label": "License",
+                        "format": "text"
+                    },
+                    "repositoryUrl": {
+                        "label": "Repository URL",
+                        "format": "text"
+                    }
+                }
+            }
+        }
+    }
+}
