@@ -96,5 +96,5 @@ fails its registry lookup, or isn't found at all is not charged.
 
 ## Related products
 
-- [NPM Package Update Tracker](https://github.com/timmKal01/npm-package-tracker): version-by-version release history for npm, instead of a single current health snapshot
-- [RubyGems Package Lookup](https://github.com/timmKal01/rubygems-package-lookup) / [NuGet Package Lookup](https://github.com/timmKal01/nuget-package-lookup) / [Packagist Package Lookup](https://github.com/timmKal01/packagist-package-lookup): full metadata for a single ecosystem, if you don't need the cross-ecosystem health rollup
+- [npm Package Update Tracker](https://apify.com/m_ctim/npm-package-tracker): version-by-version release history for npm, instead of a single current health snapshot
+- [RubyGems Package Lookup](https://apify.com/m_ctim/rubygems-package-lookup) / [NuGet Package Lookup](https://apify.com/m_ctim/nuget-package-lookup) / [Packagist Package Lookup](https://apify.com/m_ctim/packagist-package-lookup): full metadata for a single ecosystem, if you don't need the cross-ecosystem health rollup
