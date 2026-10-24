@@ -10,7 +10,8 @@
             "description": "List of packages to check: [{ \"ecosystem\": \"npm\", \"name\": \"left-pad\" }]. Supported ecosystems: npm, pypi, crates, rubygems, packagist, nuget.",
             "prefill": [
                 { "ecosystem": "npm", "name": "express" }
-            ]
+            ],
+            "default": [{"ecosystem":"npm","name":"express"}]
         },
         "githubToken": {
             "title": "GitHub token (optional)",
@@ -20,5 +21,5 @@
             "description": "Optional personal access token to raise the GitHub API rate limit from 60 to 5,000 requests/hour when checking linked repos in bulk. Leave blank for small batches."
         }
     },
-    "required": ["packages"]
+    "required": []
 }

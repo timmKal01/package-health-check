@@ -5,7 +5,7 @@ import { fetchGithubRepoStats } from './github.js';
 await Actor.init();
 
 const input = (await Actor.getInput()) ?? {};
-const { packages = [], githubToken } = input;
+const { packages: packagesInput, githubToken } = input;
 
 /** Must match the event name configured in this Actor's pay-per-event pricing on Apify. */
 const PACKAGE_CHECKED_EVENT = 'package-checked';
@@ -23,9 +23,13 @@ function computeMaintenanceStatus({ deprecatedOrYanked, github, lastActivityAt }
     return 'ABANDONED';
 }
 
-if (!Array.isArray(packages) || packages.length === 0) {
-    throw new Error('Input "packages" must be a non-empty array of { "ecosystem": "npm", "name": "..." } objects.');
+if (packagesInput !== undefined && packagesInput !== null && !Array.isArray(packagesInput)) {
+    throw new Error('Input "packages" must be an array of { "ecosystem": "npm", "name": "..." } objects.');
 }
+// An empty call (an AI agent calling with {}, or an empty API call) checks the input form's example instead of failing.
+const EXAMPLE_PACKAGES = [{ ecosystem: 'npm', name: 'express' }];
+const packages = packagesInput?.length ? packagesInput : EXAMPLE_PACKAGES;
+if (packages === EXAMPLE_PACKAGES) log.info('No packages given, so checking the example: npm express.');
 
 for (const pkg of packages) {
     const ecosystem = pkg?.ecosystem;
